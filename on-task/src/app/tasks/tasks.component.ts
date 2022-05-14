@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from '../task/task';
 
 @Component({
   selector: 'app-tasks',
@@ -6,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
-  tasks = ['item1', 'item2', 'item3'];
+  tasks = [ new Task('item1'), new Task('item2'), new Task('item3')];
 
-  addTask(newTask: string) {
+  addTask(newTask: Task) {
     this.tasks.push(newTask);
   }
   currentTask = 'Test';
