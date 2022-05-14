@@ -1,7 +1,9 @@
-<label for="item-input">Add an item name:</label>
-<input type="text" id="item-input" #newTaskName>
-<label for="item-input-2">Add an item class:</label>
-<input type="text" class="item-input" #newTaskClassName>
-<button type="button" (click)="addNewTask(newTaskName.value, newTaskClassName.value)">
+<label for="task-name">Name:</label>
+<input type="text" id="task-name" #newTaskName>
+<label for="task-class">Class:</label>
+<input type="text" id="task-class" #newTaskClassName>
+<label for="task-due-date">Due Date:</label>
+<input type="date" id="task-due-date" #newTaskDueDate>
+<button type="button" (click)="addNewTask(newTaskName.value, newTaskClassName.value, newTaskDueDate.value)">
    Add Task
 </button>
