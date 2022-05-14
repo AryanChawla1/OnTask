@@ -1,5 +1,7 @@
-<label for="item-input">Add an item:</label>
-<input type="text" id="item-input" #newTask>
-<button type="button" (click)="addNewTask(newTask.value)">
+<label for="item-input">Add an item name:</label>
+<input type="text" id="item-input" #newTaskName>
+<label for="item-input-2">Add an item class:</label>
+<input type="text" class="item-input" #newTaskClassName>
+<button type="button" (click)="addNewTask(newTaskName.value, newTaskClassName.value)">
    Add Task
 </button>

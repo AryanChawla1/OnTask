@@ -11,8 +11,8 @@ export class TaskComponent implements OnInit, OnChanges {
   @Input() task = '';
   @Output() newTask = new EventEmitter<Task>();
 
-  addNewTask(value: string) {
-    this.newTask.emit(new Task(value));
+  addNewTask(name: string, className:string) {
+    this.newTask.emit(new Task(name, className));
   }
 
   constructor() { }

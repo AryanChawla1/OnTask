@@ -7,7 +7,7 @@ import { Task } from '../task/task';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
-  tasks = [ new Task('item1'), new Task('item2'), new Task('item3')];
+  tasks = [ new Task('item1', 'class1'), new Task('item2', 'class2'), new Task('item3', 'class 1')];
 
   addTask(newTask: Task) {
     this.tasks.push(newTask);
