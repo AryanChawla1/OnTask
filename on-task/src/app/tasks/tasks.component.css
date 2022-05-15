@@ -1,3 +1,23 @@
 #name {
-   font-size: 20px
+   font-size: 20px;
+}
+
+#className-0 {
+   color: red;
+}
+
+#className-1 {
+   color: blue;
+}
+
+#className-2 {
+   color: green;
+}
+
+#className-3 {
+   color: purple;
+}
+
+#className-4 {
+   color: orange;
 }
