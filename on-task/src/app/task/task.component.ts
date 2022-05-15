@@ -12,7 +12,6 @@ export class TaskComponent implements OnInit, OnChanges {
   @Output() newTask = new EventEmitter<Task>();
 
   addNewTask(name: string, className:string, dueDate: string) {
-    console.log(dueDate);
     this.newTask.emit(new Task(name, className, new Date(dueDate)));
   }
 
