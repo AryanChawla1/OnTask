@@ -20,3 +20,5 @@ TODO
    - if completed, they should be removed
    - if not completed, priority
 - Backend
+
+When working on the project, make sure to create a branch for your own work. When completing the Pull Request, make sure to have the branch deleted, and the commits squashed. Furthermore, make it evident in the branch name and commit message what the task actually is. Make sure to test before completing the request, and optionally have a peer look over it before it is pulled.
