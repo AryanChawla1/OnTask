@@ -7,16 +7,9 @@ import { TaskComponent } from './task/task.component';
 import { TasksComponent } from './tasks/tasks.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TaskComponent,
-    TasksComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+   declarations: [AppComponent, TaskComponent, TasksComponent],
+   imports: [BrowserModule, AppRoutingModule],
+   providers: [],
+   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

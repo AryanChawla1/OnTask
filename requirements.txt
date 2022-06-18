@@ -2,3 +2,4 @@ node==16.14.0
 npm==8.9.0
 tsc==4.6.4
 angular==13.3.5
+prettier

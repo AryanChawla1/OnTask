@@ -2,26 +2,21 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitte
 import { Task } from './task';
 
 @Component({
-  selector: 'app-task',
-  templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css']
+   selector: 'app-task',
+   templateUrl: './task.component.html',
+   styleUrls: ['./task.component.css'],
 })
 export class TaskComponent implements OnInit, OnChanges {
+   @Input() task = '';
+   @Output() newTask = new EventEmitter<Task>();
 
-  @Input() task = '';
-  @Output() newTask = new EventEmitter<Task>();
+   addNewTask(name: string, className: string, dueDate: string, progress: string) {
+      this.newTask.emit(new Task(name, className, new Date(dueDate), parseInt(progress)));
+   }
 
-  addNewTask(name: string, className:string, dueDate: string) {
-    this.newTask.emit(new Task(name, className, new Date(dueDate)));
-  }
+   constructor() {}
 
-  constructor() { }
+   ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-
-  }
-
+   ngOnChanges(changes: SimpleChanges): void {}
 }

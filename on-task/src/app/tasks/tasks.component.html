@@ -1,7 +1,12 @@
 <h2>Tasks</h2>
-<ul *ngFor="let task of tasks" style="list-style: none;">
-   <li id="name">{{task.name}}</li>
-   <li id="className" [ngStyle]="{'color': getColor(task)}">{{task.className}}</li>
-   <li id="dueDate">{{task.dueDate.getFullYear()}}-{{task.dueDate.getMonth() + 1}}-{{task.dueDate.getUTCDate()}}</li>
+<ul *ngFor="let task of tasks" style="list-style: none">
+   <li id="name">{{ task.name }}</li>
+   <li id="className" [ngStyle]="{ color: getColor(task) }">{{ task.className }}</li>
+   <li id="dueDate">
+      {{ task.dueDate.getFullYear() }}-{{ task.dueDate.getMonth() + 1 }}-{{ task.dueDate.getUTCDate() }}
+   </li>
+   <li id="progress" [ngStyle]="{ 'background-color': getProgress(task), color: getProgress(task) }">
+      {{ task.progress }}
+   </li>
 </ul>
 <app-task (newTask)="addTask($event)"></app-task>
