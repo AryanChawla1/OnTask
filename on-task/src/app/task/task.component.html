@@ -4,6 +4,8 @@
 <input type="text" id="task-class" #newTaskClassName>
 <label for="task-due-date">Due Date:</label>
 <input type="date" id="task-due-date" #newTaskDueDate>
+<label for="task-progress">Progress:</label>
+<input type="radio" id="task-progress">
 <button type="button" (click)="addNewTask(newTaskName.value, newTaskClassName.value, newTaskDueDate.value)">
    Add Task
 </button>
