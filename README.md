@@ -13,7 +13,6 @@ At the moment, the taskbar is shown using Task object, multiple parameters being
 
 TODO
 - Add other parameters for `Task` object
-   - Progress gradient
 - Make each `Task` in `Tasks` mutuable for changes
 - Calendar
 - Dates that have past
