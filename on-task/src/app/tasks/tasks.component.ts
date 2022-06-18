@@ -8,12 +8,20 @@ import { Task } from '../task/task';
 })
 export class TasksComponent implements OnInit {
    tasks = [
-      new Task('item1', 'class1', new Date(), 'Not Started'),
-      new Task('item2', 'class2', new Date(), 'Not Started'),
-      new Task('item3', 'class1', new Date(), 'Not Started'),
+      new Task('item1', 'class1', new Date(), 0),
+      new Task('item2', 'class2', new Date(), 0),
+      new Task('item3', 'class1', new Date(), 0),
    ];
    classes = ['class1', 'class2'];
    colors = this.setColors();
+   progresses: any = {
+      0: '#FF0000',
+      1: '#FFAE42',
+      2: '#0000FF',
+      3: '#0D98BA',
+      4: '#90EE90',
+      5: '#00FF00',
+   };
 
    addTask(newTask: Task) {
       if (!this.classes.includes(newTask.className)) {
@@ -47,6 +55,10 @@ export class TasksComponent implements OnInit {
          }
       }
       return setupColors;
+   }
+
+   getProgress(task: Task) {
+      return this.progresses[task.progress];
    }
 
    currentTask = 'Test';

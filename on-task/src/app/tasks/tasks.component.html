@@ -5,6 +5,8 @@
    <li id="dueDate">
       {{ task.dueDate.getFullYear() }}-{{ task.dueDate.getMonth() + 1 }}-{{ task.dueDate.getUTCDate() }}
    </li>
-   <li id="progress">{{ task.progress }}</li>
+   <li id="progress" [ngStyle]="{ 'background-color': getProgress(task), color: getProgress(task) }">
+      {{ task.progress }}
+   </li>
 </ul>
 <app-task (newTask)="addTask($event)"></app-task>
