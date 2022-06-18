@@ -1,11 +1,23 @@
 <label for="task-name">Name:</label>
-<input type="text" id="task-name" #newTaskName>
+<input type="text" id="task-name" #newTaskName />
 <label for="task-class">Class:</label>
-<input type="text" id="task-class" #newTaskClassName>
+<input type="text" id="task-class" #newTaskClassName />
 <label for="task-due-date">Due Date:</label>
-<input type="date" id="task-due-date" #newTaskDueDate>
-<label for="task-progress">Progress:</label>
-<input type="radio" id="task-progress">
-<button type="button" (click)="addNewTask(newTaskName.value, newTaskClassName.value, newTaskDueDate.value)">
+<input type="date" id="task-due-date" #newTaskDueDate />
+<form>
+   <label for="task-progress">Progress:</label>
+   <select id="task-progress" name="progress" #newTaskProgress>
+      <option value="Not Started">Not Started</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Studying">Studying</option>
+      <option value="Studied">Studied</option>
+      <option value="Need to Submit">Need to Submit</option>
+      <option value="Done">Done</option>
+   </select>
+</form>
+<button
+   type="button"
+   (click)="addNewTask(newTaskName.value, newTaskClassName.value, newTaskDueDate.value, newTaskProgress.value)"
+>
    Add Task
 </button>
