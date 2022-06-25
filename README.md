@@ -16,6 +16,7 @@ TODO
 
 - User Interaction
   - Make it look nicer
+    - BUG: When creating too many tasks, they end up below add task!! Make it so there is scrollwheel for tasks.
   - Make fields required
 - Add other parameters for `Task` object
   - Priority Option
