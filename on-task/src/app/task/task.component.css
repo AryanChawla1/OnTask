@@ -1,0 +1,23 @@
+#input-container {
+   position: absolute;
+   background-color: pink;
+   border-radius: 20px;
+   width: 50%;
+   height: 100px;
+   bottom: 20px;
+}
+
+#input-content {
+   position: relative;
+   top: 20%;
+   left: 10px;
+}
+
+#add-task {
+   position: relative;
+   top: 10px;
+   border: none;
+   border-radius: 20px;
+   cursor: pointer;
+   font-weight: bold;
+}
