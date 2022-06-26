@@ -10,7 +10,7 @@ workload.
 
 ## For Developers
 
-# How to run Project
+### How to run Project
 
 Make sure you have angular installed, ` npm install -g @angular/cli`. The other libraries/frameworks needed are simple to install, stack overflow probably has the commands there. 
 
