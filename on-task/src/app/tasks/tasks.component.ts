@@ -11,6 +11,11 @@ export class TasksComponent implements OnInit {
       new Task('item1', 'class1', new Date(), 0),
       new Task('item2', 'class2', new Date(), 0),
       new Task('item3', 'class1', new Date(), 0),
+      new Task('item4', 'class1', new Date(), 0),
+      new Task('item5', 'class1', new Date(), 0),
+      new Task('item6', 'class2', new Date(), 0),
+      new Task('item7', 'class2', new Date(), 0),
+
    ];
    classes = ['class1', 'class2'];
    colors = this.setColors();
