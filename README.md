@@ -10,6 +10,12 @@ workload.
 
 ## For Developers
 
+# How to run Project
+
+Make sure you have angular installed, ` npm install -g @angular/cli`. The other libraries/frameworks needed are simple to install, stack overflow probably has the commands there. 
+
+Once everything is installed, make sure your in the frontend directory `cd on-task`, and then run the command `ng serve --open`. It's also possible you may need to use `ng.cmd serve --open`. 
+
 At the moment, the taskbar is shown using Task object, multiple parameters being shown.
 
 TODO
