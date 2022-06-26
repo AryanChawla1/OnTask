@@ -61,8 +61,6 @@ export class TasksComponent implements OnInit {
       return this.progresses[task.progress];
    }
 
-   currentTask = 'Test';
-
    constructor() {}
 
    ngOnInit(): void {}
