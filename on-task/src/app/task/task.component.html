@@ -17,10 +17,20 @@
             <option value="5">Done</option>
          </select>
       </form>
+      <label for="task-priority">Priority?</label>
+      <input type="checkbox" id="task-priority" #newTaskPriority />
       <button
          id="add-task"
          type="button"
-         (click)="addNewTask(newTaskName.value, newTaskClassName.value, newTaskDueDate.value, newTaskProgress.value)"
+         (click)="
+            addNewTask(
+               newTaskName.value,
+               newTaskClassName.value,
+               newTaskDueDate.value,
+               newTaskProgress.value,
+               newTaskPriority.checked
+            )
+         "
       >
          Add Task
       </button>
