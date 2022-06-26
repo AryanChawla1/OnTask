@@ -17,7 +17,15 @@ h3 {
    position: relative;
    font-size: 25px;
    font-weight: normal;
-   margin-bottom: 10px;
+   margin-bottom: 5px;
+}
+
+h4 {
+   position: relative;
+   left: 20px;
+   margin-top: 10px;
+   font-weight: lighter;
+   margin-bottom: 5px;
 }
 
 .bordered {

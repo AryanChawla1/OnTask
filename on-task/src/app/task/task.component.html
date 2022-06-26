@@ -17,6 +17,17 @@
             <option value="5">Done</option>
          </select>
       </form>
+      <form>
+         <label for="task-type">Type of Task:</label>
+         <select id="task-type" name="type" #newTaskType>
+            <option value="assignment">Assignment</option>
+            <option value="Test">Test</option>
+            <option value="Exam">Exam</option>
+            <option value="Project">Project</option>
+            <option value="Presentation">Presentation</option>
+            <option value="Lab">Lab</option>
+         </select>
+      </form>
       <label for="task-priority">Priority?</label>
       <input type="checkbox" id="task-priority" #newTaskPriority />
       <button
@@ -28,7 +39,8 @@
                newTaskClassName.value,
                newTaskDueDate.value,
                newTaskProgress.value,
-               newTaskPriority.checked
+               newTaskPriority.checked,
+               newTaskType.value
             )
          "
       >

@@ -4,6 +4,7 @@ export class Task {
       public className: string,
       public dueDate: Date,
       public progress: number,
-      public priority: boolean
+      public priority: boolean,
+      public type: string
    ) {}
 }
