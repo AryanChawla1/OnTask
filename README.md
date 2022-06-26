@@ -12,9 +12,9 @@ workload.
 
 ### How to run Project
 
-Make sure you have angular installed, ` npm install -g @angular/cli`. The other libraries/frameworks needed are simple to install, stack overflow probably has the commands there. 
+Make sure you have angular installed, ` npm install -g @angular/cli`. The other libraries/frameworks needed are simple to install, stack overflow probably has the commands there.
 
-Once everything is installed, make sure your in the frontend directory `cd on-task`, and then run the command `ng serve --open`. It's also possible you may need to use `ng.cmd serve --open`. 
+Once everything is installed, make sure your in the frontend directory `cd on-task`, and then run the command `ng serve --open`. It's also possible you may need to use `ng.cmd serve --open`.
 
 At the moment, the taskbar is shown using Task object, multiple parameters being shown.
 
@@ -25,11 +25,6 @@ TODO
     - BUG: When creating too many tasks, they end up below add task!! Make it so there is scrollwheel for tasks.
   - Make fields required
 - Add other parameters for `Task` object
-  - Priority Option
-  - Type of Task
-    - Test
-    - Project
-    - Assignment
 - Make each `Task` in `Tasks` mutuable for changes
   - Change information
   - Update Progress
