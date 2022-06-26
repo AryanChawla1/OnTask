@@ -20,6 +20,10 @@ h3 {
    margin-bottom: 10px;
 }
 
+.bordered {
+   outline: 2px red solid;
+}
+
 #task {
    width: 50%;
    border-radius: 15px;
