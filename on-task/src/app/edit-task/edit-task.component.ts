@@ -18,5 +18,15 @@ export class EditTaskComponent implements OnInit {
       });
    }
 
+   editTask(name: string, className: string, dueDate: string, progress: string, priority: boolean, type: string) {
+      this.task.setValues(name, className, new Date(dueDate), parseInt(progress), priority, type);
+   }
+
+   getDate() {
+      return (
+         this.task.dueDate.getFullYear() + '-' + (this.task.dueDate.getMonth() + 1) + '-' + this.task.dueDate.getDate()
+      );
+   }
+
    ngOnInit(): void {}
 }
