@@ -7,7 +7,9 @@
       <p id="dueDate">
          Due Date: {{ task.dueDate.getFullYear() }}-{{ task.dueDate.getMonth() + 1 }}-{{ task.dueDate.getUTCDate() }}
       </p>
+      <a routerLink="/edit" routerLinkActive="active" ariaCurrentWhenActive="page">Link</a>
       <div id="progress" [ngStyle]="{ 'background-color': getProgress(task), color: getProgress(task) }"></div>
    </div>
 </div>
+<router-outlet></router-outlet>
 <app-task (newTask)="addTask($event)"></app-task>
