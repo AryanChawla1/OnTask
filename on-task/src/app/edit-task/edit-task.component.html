@@ -1,2 +1,10 @@
-<p>edit-task works!</p>
+<div id="task">
+   <h2 id="name">{{ task.name }}</h2>
+   <h3 id="className">{{ task.className }}</h3>
+   <h4 id="type">{{ task.type }}</h4>
+   <p id="dueDate">
+      Due Date: {{ task.dueDate.getFullYear() }}-{{ task.dueDate.getMonth() + 1 }}-{{ task.dueDate.getUTCDate() }}
+   </p>
+   <p id="progress">{{ task.progress }}</p>
+</div>
 <a routerLink="/tasks" routerLinkActive="active" ariaCurrentWhenActive="page">Go Back</a>
