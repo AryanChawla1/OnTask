@@ -15,5 +15,4 @@
       <div id="progress" [ngStyle]="{ 'background-color': getProgress(task), color: getProgress(task) }"></div>
    </div>
 </div>
-<router-outlet></router-outlet>
 <app-task (newTask)="addTask($event)"></app-task>
