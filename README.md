@@ -8,6 +8,10 @@ OnTask is an application to have all your assignments, tests, and projects sorte
 The left shows the tasks sorted by due date with progress shown as well. The right shows a calendar to easily visualize your
 workload.
 
+## For Users
+
+Add Tasks, and see them presented above. The background color represents the class, the small bar represents progress, and the border represents priority. To edit, click the task, edit attributes and go back.
+
 ## For Developers
 
 ### How to run Project
@@ -22,23 +26,20 @@ TODO
 
 - User Interaction
   - Make it look nicer
+  - Add Styling and Button for Edit Task Option
     - BUG: When creating too many tasks, they end up below add task!! Make it so there is scrollwheel for tasks.
   - Make fields required
 - Add other parameters for `Task` object
-- Make each `Task` in `Tasks` mutuable for changes
-  - Change information
-  - Update Progress
-  - Mark as Done
 - Calendar
   - Calendar with proper dates
   - Include the tasks on there
-- Tasks should be organized
-  - By Priority
-  - Date
 - Dates that have past
   - if completed, they should be removed
   - if not completed, priority
 - Backend
+  - Tasks should be organized (API)
+    - By Priority
+    - Date
 
 When working on the project, make sure to create a branch for your own work. When completing the Pull Request, make sure to have the branch deleted, and the commits squashed. Furthermore, make it evident in the branch name and commit message what the task actually is. Make sure to test before completing the request, and optionally have a peer look over it before it is pulled.
 

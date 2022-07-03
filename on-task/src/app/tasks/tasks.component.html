@@ -1,6 +1,11 @@
 <h1>Tasks</h1>
 <div *ngFor="let task of tasks" id="tasks">
-   <div id="task" [ngClass]="{ bordered: task.priority }" [ngStyle]="{ 'background-color': getColor(task) }">
+   <div
+      id="task"
+      [ngClass]="{ bordered: task.priority }"
+      [ngStyle]="{ 'background-color': getColor(task) }"
+      (click)="editTask(task.getID())"
+   >
       <h2 id="name">{{ task.name }}</h2>
       <h3 id="className">{{ task.className }}</h3>
       <h4 id="type">{{ task.type }}</h4>

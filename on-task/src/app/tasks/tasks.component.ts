@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Task } from '../task/task';
+import { TaskData } from '../test-data/tasks-data';
 
 @Component({
    selector: 'app-tasks',
@@ -7,11 +9,7 @@ import { Task } from '../task/task';
    styleUrls: ['./tasks.component.css'],
 })
 export class TasksComponent implements OnInit {
-   tasks = [
-      new Task('item1', 'class1', new Date(), 0, true, 'Exam'),
-      new Task('item2', 'class2', new Date(), 0, true, 'Test'),
-      new Task('item3', 'class1', new Date(), 0, false, 'Assignment'),
-   ];
+   tasks = TaskData.tasks;
    classes = ['class1', 'class2'];
    colors = this.setColors();
    progresses: any = {
@@ -61,7 +59,11 @@ export class TasksComponent implements OnInit {
       return this.progresses[task.progress];
    }
 
-   constructor() {}
+   editTask(id: number) {
+      this.router.navigate(['edit', id]);
+   }
+
+   constructor(private router: Router) {}
 
    ngOnInit(): void {}
 }
