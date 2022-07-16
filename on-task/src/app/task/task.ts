@@ -8,7 +8,8 @@ export class Task {
       public dueDate: Date,
       public progress: number,
       public priority: boolean,
-      public type: string
+      public type: string,
+      public api_name?: string
    ) {
       this.ID = Task.createID();
    }
