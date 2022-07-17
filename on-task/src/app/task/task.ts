@@ -22,12 +22,23 @@ export class Task {
       return Task.counter++;
    }
 
-   setValues(name: string, className: string, dueDate: Date, progress: number, priority: boolean, type: string) {
+   setValues(
+      name: string,
+      className: string,
+      dueDate: Date,
+      progress: number,
+      priority: boolean,
+      type: string,
+      api_name?: string
+   ) {
       this.name = name;
       this.className = className;
       this.dueDate = dueDate;
       this.progress = progress;
       this.priority = priority;
       this.type = type;
+      if (api_name != null) {
+         this.api_name = api_name;
+      }
    }
 }

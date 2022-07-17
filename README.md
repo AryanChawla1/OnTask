@@ -37,10 +37,20 @@ TODO
   - if completed, they should be removed
   - if not completed, priority
 - Backend
-  - Tasks should be organized (API)
-    - By Priority
-    - Date
+  - Minor error with search() in TasksComponent, not working as intended
+  - Tasks should have a user field for which user created it
+  - User Table
+    - Backend auth for user to login
+- Tasks should be organized (API)
+  - By Priority
+  - Date
+
+### Git Development
 
 When working on the project, make sure to create a branch for your own work. When completing the Pull Request, make sure to have the branch deleted, and the commits squashed. Furthermore, make it evident in the branch name and commit message what the task actually is. Make sure to test before completing the request, and optionally have a peer look over it before it is pulled.
+
+### Firebase
+
+Google firebase is being used! The database link is here: https://on-task-database-default-rtdb.firebaseio.com. For access, make account with firebase and I will add you to the project. It is a realtime database.
 
 New Requirement: Prettier!! For code cleaniness, Prettier will auto-format code on save. Download it through `npm` and `VSCode` and make sure to adjust settings accordingly.

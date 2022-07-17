@@ -20,6 +20,12 @@ export class TaskComponent implements OnInit, OnChanges {
             name = Object.values(response)[0];
             console.log(name);
             task.api_name = name;
+            this.httpClient
+               .patch(
+                  'https://on-task-database-default-rtdb.firebaseio.com/tasks/' + name + '.json',
+                  JSON.stringify({ api_name: name })
+               )
+               .subscribe((response) => console.log(response));
          });
    }
 
