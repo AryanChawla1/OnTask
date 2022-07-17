@@ -44,6 +44,7 @@ TODO
 - Tasks should be organized (API)
   - By Priority
   - Date
+- IMPORTANT: Make database link private, env variable?
 
 ### Git Development
 
