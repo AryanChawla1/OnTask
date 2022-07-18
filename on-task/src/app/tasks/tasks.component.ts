@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Task } from '../task/task';
@@ -25,7 +26,7 @@ export class TasksComponent implements OnInit {
       if (!this.classes.includes(newTask.className)) {
          this.classes.push(newTask.className);
       }
-      this.tasks.push(newTask);
+      TaskData.tasks.push(newTask);
 
       if (!(newTask.className in this.colors)) {
          this.colors[newTask.className] = '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -63,7 +64,44 @@ export class TasksComponent implements OnInit {
       this.router.navigate(['edit', id]);
    }
 
-   constructor(private router: Router) {}
+   constructor(private router: Router, private httpClient: HttpClient) {
+      this.httpClient.get('https://on-task-database-default-rtdb.firebaseio.com/tasks.json').subscribe((response) => {
+         if (response != null) {
+            var tasks_json = Object.values(response);
+            for (let i = 0; i < tasks_json.length; i++) {
+               console.log(tasks_json[i]);
+               var searched_task = TaskData.search(tasks_json[i]['ID']);
+               tasks_json[i]['dueDate'] = new Date(tasks_json[i]['dueDate']);
+               if (searched_task.name != 'error') {
+                  console.log('found');
+                  searched_task.setValues(
+                     tasks_json[i]['name'],
+                     tasks_json[i]['className'],
+                     tasks_json[i]['dueDate'],
+                     tasks_json[i]['progress'],
+                     tasks_json[i]['priority'],
+                     tasks_json[i]['type'],
+                     tasks_json[i]['api_name']
+                  );
+               } else {
+                  console.log('not found');
+                  var new_task = new Task(
+                     tasks_json[i]['name'],
+                     tasks_json[i]['className'],
+                     tasks_json[i]['dueDate'],
+                     tasks_json[i]['progress'],
+                     tasks_json[i]['priority'],
+                     tasks_json[i]['type'],
+                     tasks_json[i]['api_name']
+                  );
+                  new_task.ID = tasks_json[i]['ID'];
+                  this.addTask(new_task);
+               }
+            }
+         }
+      });
+      console.log(TaskData.tasks);
+   }
 
    ngOnInit(): void {}
 }
