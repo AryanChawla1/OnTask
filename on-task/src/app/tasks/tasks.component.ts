@@ -11,7 +11,7 @@ import { TaskData } from '../test-data/tasks-data';
 })
 export class TasksComponent implements OnInit {
    tasks = TaskData.tasks;
-   classes = ['class1', 'class2'];
+   classes: string[] = [];
    colors = this.setColors();
    progresses: any = {
       0: '#FF0000',
@@ -69,11 +69,9 @@ export class TasksComponent implements OnInit {
          if (response != null) {
             var tasks_json = Object.values(response);
             for (let i = 0; i < tasks_json.length; i++) {
-               console.log(tasks_json[i]);
                var searched_task = TaskData.search(tasks_json[i]['ID']);
                tasks_json[i]['dueDate'] = new Date(tasks_json[i]['dueDate']);
                if (searched_task.name != 'error') {
-                  console.log('found');
                   searched_task.setValues(
                      tasks_json[i]['name'],
                      tasks_json[i]['className'],
@@ -84,7 +82,6 @@ export class TasksComponent implements OnInit {
                      tasks_json[i]['api_name']
                   );
                } else {
-                  console.log('not found');
                   var new_task = new Task(
                      tasks_json[i]['name'],
                      tasks_json[i]['className'],
@@ -98,9 +95,9 @@ export class TasksComponent implements OnInit {
                   this.addTask(new_task);
                }
             }
+            TaskData.sortTasks();
          }
       });
-      console.log(TaskData.tasks);
    }
 
    ngOnInit(): void {}
