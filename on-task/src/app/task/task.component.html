@@ -1,6 +1,6 @@
 <div id="input-container">
    <div id="input-content">
-      <form >
+      <form>
          <label for="task-name">Name:</label>
          <input type="text" id="task-name" #newTaskName required />
          <label for="task-class">Class:</label>
@@ -30,9 +30,23 @@
             </select>
          </form>
          <label for="task-priority">Priority?</label>
-         <button id="add-task" type="submit"
-            (click)="addNewTask(newTaskName.value, newTaskClassName.value, newTaskDueDate.value, newTaskProgress.value)">
+         <input type="checkbox" id="task-priority" #newTaskPriority />
+         <button
+            id="add-task"
+            type="submit"
+            (click)="
+               addNewTask(
+                  newTaskName.value,
+                  newTaskClassName.value,
+                  newTaskDueDate.value,
+                  newTaskProgress.value,
+                  newTaskPriority.checked,
+                  newTaskType.value
+               )
+            "
+         >
             Add Task
          </button>
+      </form>
    </div>
 </div>
