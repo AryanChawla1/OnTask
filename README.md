@@ -27,8 +27,7 @@ TODO
 - User Interaction
   - Make it look nicer
   - Add Styling and Button for Edit Task Option
-    - BUG: When creating too many tasks, they end up below add task!! Make it so there is scrollwheel for tasks.
-  - Make fields required
+  - Consideration: When setting classname, already created classnames could appear as an option
 - Add other parameters for `Task` object
 - Calendar
   - Calendar with proper dates
@@ -36,14 +35,13 @@ TODO
 - Dates that have past
   - if completed, they should be removed
   - if not completed, priority
+- Minor error with search() in TasksComponent, not working as intended
 - Backend
-  - Minor error with search() in TasksComponent, not working as intended
+
   - Tasks should have a user field for which user created it
   - User Table
     - Backend auth for user to login
-- Tasks should be organized (API)
-  - By Priority
-  - Date
+
 - IMPORTANT: Make database link private, env variable?
 
 ### Git Development

@@ -11,4 +11,11 @@ export class TaskData {
       }
       return new Task('error', 'error', new Date(), 0, true, 'error');
    }
+
+   public static sortTasks() {
+      TaskData.tasks.sort(
+         (taskA, taskB) =>
+            Number(taskB.priority) - Number(taskA.priority) || Number(taskA.dueDate) - Number(taskB.dueDate)
+      );
+   }
 }
