@@ -19,21 +19,27 @@ export class EditTaskComponent implements OnInit {
       });
    }
 
+   // I hate how this function works
    editTask(name: string, className: string, dueDate: string, progress: string, priority: boolean, type: string) {
       this.task.setValues(name, className, new Date(dueDate), parseInt(progress), priority, type);
+      var obj = JSON.parse(JSON.stringify(this.task));
+      obj.dueDate = dueDate;
       this.httpClient
-         .put(
-            'https://on-task-database-default-rtdb.firebaseio.com/tasks/' + this.task.api_name + '.json',
-            JSON.stringify(this.task)
-         )
-         .subscribe((response) => console.log(response));
+         .put('http://localhost:8000/api/put/task/' + this.task.ID, JSON.stringify(obj))
+         .subscribe((response) => {
+            console.log(response);
+         });
    }
 
    getDate() {
-      return (
-         this.task.dueDate.getFullYear() + '-' + (this.task.dueDate.getMonth() + 1) + '-' + this.task.dueDate.getDate()
-      );
+      var presentedDate = new Date(this.task.dueDate);
+      presentedDate.setDate(this.task.dueDate.getDate() + 1);
+
+      return presentedDate.toLocaleDateString('en-CA');
    }
 
+   getType() {
+      return this.task.type.toLowerCase();
+   }
    ngOnInit(): void {}
 }

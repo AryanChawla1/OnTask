@@ -65,23 +65,12 @@ export class TasksComponent implements OnInit {
    }
 
    constructor(private router: Router, private httpClient: HttpClient) {
-      this.httpClient.get('https://on-task-database-default-rtdb.firebaseio.com/tasks.json').subscribe((response) => {
+      this.httpClient.get('http://localhost:8000/api/get/tasks').subscribe((response) => {
          if (response != null) {
             var tasks_json = Object.values(response);
             for (let i = 0; i < tasks_json.length; i++) {
-               var searched_task = TaskData.search(tasks_json[i]['ID']);
                tasks_json[i]['dueDate'] = new Date(tasks_json[i]['dueDate']);
-               if (searched_task.name != 'error') {
-                  searched_task.setValues(
-                     tasks_json[i]['name'],
-                     tasks_json[i]['className'],
-                     tasks_json[i]['dueDate'],
-                     tasks_json[i]['progress'],
-                     tasks_json[i]['priority'],
-                     tasks_json[i]['type'],
-                     tasks_json[i]['api_name']
-                  );
-               } else {
+               if (TaskData.search(tasks_json[i]['id']).name == 'error') {
                   var new_task = new Task(
                      tasks_json[i]['name'],
                      tasks_json[i]['className'],
@@ -89,15 +78,25 @@ export class TasksComponent implements OnInit {
                      tasks_json[i]['progress'],
                      tasks_json[i]['priority'],
                      tasks_json[i]['type'],
-                     tasks_json[i]['api_name']
+                     tasks_json[i]['id']
                   );
-                  new_task.ID = tasks_json[i]['ID'];
                   this.addTask(new_task);
+               } else {
+                  var oldTask = TaskData.search(tasks_json[i]['id']);
+                  oldTask.setValues(
+                     tasks_json[i]['name'],
+                     tasks_json[i]['className'],
+                     tasks_json[i]['dueDate'],
+                     tasks_json[i]['progress'],
+                     tasks_json[i]['priority'],
+                     tasks_json[i]['type']
+                  );
                }
             }
             TaskData.sortTasks();
          }
       });
+      console.log(TaskData.tasks);
    }
 
    ngOnInit(): void {}
