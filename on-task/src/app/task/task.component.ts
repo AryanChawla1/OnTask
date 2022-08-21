@@ -14,21 +14,14 @@ export class TaskComponent implements OnInit, OnChanges {
    addNewTask(name: string, className: string, dueDate: string, progress: string, priority: boolean, type: string) {
       var task = new Task(name, className, new Date(dueDate), parseInt(progress), priority, type);
       this.newTask.emit(task);
-      this.httpClient
-         .post('https://on-task-database-default-rtdb.firebaseio.com/tasks.json', JSON.stringify(task))
-         .subscribe((response) => {
-            name = Object.values(response)[0];
-            console.log(name);
-            task.api_name = name;
-            this.httpClient
-               .patch(
-                  'https://on-task-database-default-rtdb.firebaseio.com/tasks/' + name + '.json',
-                  JSON.stringify({ api_name: name })
-               )
-               .subscribe((response) => console.log(response));
-         });
+      var obj = JSON.parse(JSON.stringify(task));
+      obj.dueDate = dueDate;
+      this.httpClient.post('http://localhost:8000/api/post/task', JSON.stringify(obj)).subscribe((response) => {
+         console.log(response);
+         obj = Object.values(response);
+         task.ID = obj[0];
+      });
    }
-
    constructor(private httpClient: HttpClient) {}
 
    ngOnInit(): void {}

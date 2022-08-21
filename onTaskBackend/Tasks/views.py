@@ -34,8 +34,24 @@ def task(request, pk):
    try:
       task = Task.objects.get(pk=pk)
    except Task.DoesNotExist:
-       return JsonResponse({'message': 'The tutorial does not exist'}, status=status.HTTP_404_NOT_FOUND)
+       return JsonResponse({'message': 'The task does not exist'}, status=status.HTTP_404_NOT_FOUND)
 
    if request.method == 'GET':
       task_serializer = TaskSerializer(task)
       return JsonResponse(task_serializer.data)
+
+
+@api_view(['PUT'])
+def edit_task(request, pk):
+   try:
+      task = Task.objects.get(pk=pk)
+   except Task.DoesNotExist:
+      return JsonResponse({'message': 'The task does not exist'}, status=status.HTTP_404_NOT_FOUND)
+   
+   if request.method == 'PUT':
+      task_data = JSONParser().parse(request)
+      task_serializer = TaskSerializer(task, data=task_data)
+      if task_serializer.is_valid():
+         task_serializer.save()
+         return JsonResponse(task_serializer.data)
+      return JsonResponse(task_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

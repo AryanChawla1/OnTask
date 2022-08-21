@@ -20,7 +20,7 @@
       </form>
       <form>
          <label for="task-type">Type of Task:</label>
-         <select id="task-type" name="type" value="{{ this.task.type }}" #editTaskType>
+         <select id="task-type" name="type" value="{{ getType() }}" #editTaskType>
             <option value="assignment">Assignment</option>
             <option value="Test">Test</option>
             <option value="Exam">Exam</option>
